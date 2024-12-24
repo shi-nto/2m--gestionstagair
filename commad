@@ -1,0 +1,20 @@
+# Install Composer dependencies
+composer install
+
+# Require PHPWord library
+composer require phpoffice/phpword
+
+# Remove the symbolic link to storage if it exists
+rm -rf public/storage
+
+# Create a new symbolic link for storage
+php artisan storage:link
+
+# Seed the database with the specified seeder
+php artisan db:seed --class=usersSeeder
+
+# Cache the routes
+php artisan route:cache
+
+# Cache the configuration
+php artisan config:cache
